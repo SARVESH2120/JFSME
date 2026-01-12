@@ -25,3 +25,9 @@ public class Demo27 {
 
 //array is a class type data type if nothing initialized then default value will be zero
 // int - 0 , float - 0.0 , string - null , b
+
+//Write a java method that counts a small case character in a give strings
+//ex heLLo  -- > 2
+//HelLo --> 3
+//countSmallcaseChar
+//guess return type
