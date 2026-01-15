@@ -11,3 +11,4 @@ public class C5 extends C1{
 
 
 //package my.new.abc  -- this will create a new folders and inside this the package should be there
+//public protected default private ranks
