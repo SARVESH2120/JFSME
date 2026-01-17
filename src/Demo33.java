@@ -1,5 +1,5 @@
 public class Demo33 {
-    //wher we should not used a one liners
+    //where we should not used a one liners
 
 
 

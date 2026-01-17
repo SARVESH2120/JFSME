@@ -17,7 +17,7 @@ public class Demo32 {
         }
 
         public static void main(String[] args) {
-           new Demo32().init();
+           new Demo32().init();  // every one liner create a seprate instance
            new Demo32().disp();
            //see soln in next demo
         }
