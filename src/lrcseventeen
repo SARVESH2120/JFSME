@@ -1,0 +1,30 @@
+
+
+public abstract class lecSeventeen {
+    void garden(){
+        System.out.println("garden");
+    }
+    
+    void sp(){
+        System.out.println("swim");
+    }
+    void rooms(){
+        System.out.println("3bhk");
+    }
+    
+    abstract void location();
+    
+    
+    
+}
+
+
+/**
+ *Abstract Class
+ * Abstract method - without  a body;
+ * abstract method only be created in abstract class;
+ * class can have more than one abstract method
+ *  **/
+
+----------------------------------------------------------------------------------------------
+
