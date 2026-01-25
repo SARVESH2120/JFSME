@@ -1,0 +1,231 @@
+public class Student {
+    String name = "abc";
+    final int rollno = 50;
+    void showStudentdata(){
+        name = "xyz";
+//        rollno = 90;   // gives an error final var once initialized cannot be changed
+        System.out.println(name);
+
+    }
+
+    public static void main(String[] args) {
+        new Student().showStudentdata();
+    }
+}
+
+
+=========================================================================================================
+
+//final variable don't have a default value
+//must be initialized and once initialized its final
+
+public class Student {
+
+    final int rollNo;
+
+    Student (){
+        rollNo =90; //only once we can initalized it
+    }
+    void showStudentData(){
+        System.out.println(rollNo);
+    }
+
+    public static void main(String[] args) {
+    new Student().showStudentData();
+
+    }
+}
+
+
+
+=========================================================================================================
+
+//local final variable
+
+public class Student {
+
+    
+
+    Student (){
+        
+    }
+    void showStudentData(){
+        final int ROLLNO;  //declare in capital letter
+        rollNo = 90;  /////////////local final variable have differents rule
+        
+        System.out.println(rollNo);
+    }
+
+    public static void main(String[] args) {
+    new Student().showStudentData();
+
+    }
+}
+
+==================================================================================================
+//Static variable cannot be created as a local variable but final variable can be created as local variable
+
+
+//final var reserve the value in ROM
+
+class Student{
+
+    final void followDiscipline(){
+        System.out.println("has to wear school uniform");
+    }
+
+    void attendForLabs(){
+        System.out.println("Students must attend the labs");
+    }
+
+
+
+}
+
+class ScienceStudent extends  Student{
+//    @Override
+//    void followDiscipline(){
+//        System.out.println("We will come in casuals");
+//    }
+
+}
+
+class ArtsStudent  extends  Student{
+
+    @Override
+    void attendForLabs(){
+        System.out.println("Lab is not for us");
+    }
+}
+
+
+
+
+public class StudentService {
+
+
+    public static void main(String[] args) {
+//        Student s = new Student();
+//        s.followDiscipline();
+//
+//        ScienceStudent s1 = new ScienceStudent();
+//        s1.followDiscipline();
+//
+//
+//        ArtsStudent a1 = new ArtsStudent();
+//        a1.followDiscipline();
+
+        //Dynamic method dispatch
+
+        Student scientStudent = new ScienceStudent();
+        Student artsStudents = new ArtsStudent();
+
+        scientStudent.followDiscipline();
+        scientStudent.attendForLabs();
+
+        artsStudents.followDiscipline();
+        artsStudents.attendForLabs();
+
+    }
+}
+
+
+======================================================================================
+
+class CalculatorService{
+     int add( int a , int b){
+         return a+b;
+     }
+     int subtract(int a, int b){
+         if(a>b)
+             return a-b;
+         else
+             return b-a;
+
+     }
+}
+
+class HackedClaculator extends CalculatorService{
+    int add(int a , int b){
+        return 0;
+    }
+    int subtract(int a, int b){
+        return -1;
+    }
+
+}
+
+public class Calculator {
+
+    static int PerformCalculator(CalculatorService cs, int a, int b){
+        return cs.add(a,b);
+    }
+
+
+    public static void main(String[] args) {
+        CalculatorService cs =new CalculatorService();
+        System.out.println(cs.add(4,5));
+        System.out.println(cs.subtract(9,7));
+
+        HackedClaculator hc = new HackedClaculator();
+        System.out.println(hc.add(4,5));
+        System.out.println(hc.subtract(3,7));
+
+
+        System.out.println("-------------");
+        System.out.println(PerformCalculator(cs, 45, 45));
+
+    }
+
+}
+
+------------------------------------------------------------------------------------
+final class  CalculatorService{
+     int add( int a , int b){
+         return a+b;
+     }
+     int subtract(int a, int b){
+         if(a>b)
+             return a-b;
+         else
+             return b-a;
+
+     }
+}
+
+//class HackedClaculator extends CalculatorService{
+//    int add(int a , int b){
+//        return 0;
+//    }
+//    int subtract(int a, int b){
+//        return -1;
+//    }
+//
+//}
+
+public class Calculator {
+
+    static int PerformCalculator(CalculatorService cs, int a, int b){
+        return cs.add(a,b);
+    }
+
+
+    public static void main(String[] args) {
+        CalculatorService cs =new CalculatorService();
+        System.out.println(cs.add(4,5));
+        System.out.println(cs.subtract(9,7));
+
+//        HackedClaculator hc = new HackedClaculator();
+//        System.out.println(hc.add(4,5));
+//        System.out.println(hc.subtract(3,7));
+//
+//
+//        System.out.println("-------------");
+//        System.out.println(PerformCalculator(hc, 45, 45));
+
+    }
+
+}
+
+
+//when we have critical logic in an application and we don't wan someone  to break the logic makes sure u mark class as final ..  markingth =e class as finalensure a class can be used but cannot be modified
