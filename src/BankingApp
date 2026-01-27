@@ -1,0 +1,101 @@
+public abstract  class BankAccount {
+    String accountNumber;
+    int balance;
+
+    public BankAccount(){
+
+    }
+
+    public BankAccount(String accountNumber, int balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    void deposit(int amount){
+        balance += amount;
+        System.out.println("depsoited " + amount + "in ur account" );
+    }
+
+
+    void checkBalance(){
+
+        System.out.println("balance in your account is  " + balance );
+    }
+
+    //different rules of saving and current account
+    abstract void withdraw(int amount);
+
+
+}
+
+
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+
+public class SavingAccounts extends BankAccount {
+
+    public SavingAccounts(String accountNumber, int balance) {
+        super(accountNumber, balance);
+        }
+    @Override
+    void withdraw(int amount){
+        if(balance - amount >= 500){
+            balance -= amount;
+            System.out.println("withdrawl of rs " + amount);
+        }else{
+            System.out.println("insufficent balance  plss maintain it");
+        }
+    }
+}
+
+
+----------------------------------------------------------------------------------------------------------------
+
+public class CurrentAccount extends BankAccount{
+
+    public CurrentAccount(String accountNumber, int balance) {
+        super(accountNumber, balance);
+    }
+    @Override
+    void withdraw(int amount){
+        if(amount <= balance){
+            balance -= amount;
+            System.out.println("withdrawl of rs " + amount);
+        }else{
+            System.out.println("insufficent balance  plss maintain it");
+        }
+    }
+
+
+
+}
+
+
+----------------------------------------------------------------------------------------------------------------
+
+public class BankingService {
+    public static void main(String[] args) {
+        BankAccount savAcc = new SavingAccounts("sv123" , 1000);
+        BankAccount currAcc = new CurrentAccount("cr123" , 2000);
+
+        savAcc.checkBalance();
+        savAcc.deposit(450);
+
+        savAcc.checkBalance();
+        savAcc.withdraw(100);
+        savAcc.checkBalance();
+
+
+
+        currAcc.checkBalance();
+        currAcc.deposit(450);
+
+        currAcc.checkBalance();
+        currAcc.withdraw(14000);
+        currAcc.checkBalance();
+    }
+}
+
+
+----------------------------------------------------------------------------------------------------------------
+
