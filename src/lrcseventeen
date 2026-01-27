@@ -1,30 +1,302 @@
+//abstract method only be created in abstract class;
+//An abstract class may or may not have a abstract method
+//A abstract class can have zero or more abstract method
+// u cannot create an instance of abstract class
 
 
-public abstract class lecSeventeen {
+public abstract class MyPlan {
     void garden(){
         System.out.println("garden");
     }
-    
+
     void sp(){
         System.out.println("swim");
     }
     void rooms(){
         System.out.println("3bhk");
     }
-    
+
     abstract void location();
-    
-    
-    
+
+
+
 }
+
+-----------------------------------------------------------------------------------------------------------------
+public class PlanService {
+    public static void main(String[] args) {
+        MyPlan myplan = new MyPlan() {
+        
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------
 
 
 /**
- *Abstract Class
+ *Abstract Class are special type of parent class which force the child to override the class
  * Abstract method - without  a body;
  * abstract method only be created in abstract class;
- * class can have more than one abstract method
- *  **/
+ **/
 
-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+public abstract class MyPlan {
+    void garden(){
+        System.out.println("garden");
+    }
+    void sp(){
+        System.out.println("swim");
+    }
+    void rooms(){
+        System.out.println("3bhk");
+    }
+
+    abstract void location();
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+public class RocksPlan extends MyPlan{
+    @Override
+    void location() {
+        System.out.println("spn in front of the building ");
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------
+public class JohnsPlan extends MyPlan{
+    @Override
+    void location(){
+        System.out.println("sp at top ..  garden around the building ");
+    }
+
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+public class PlanService {
+    public static void main(String[] args) {
+        JohnsPlan jp = new JohnsPlan();
+        jp.rooms();
+        jp.sp();    //these three are concrete methods
+        jp.garden();
+
+
+        jp.location();  // these all are abstract methods
+
+        RocksPlan rp = new RocksPlan();
+        rp.rooms();
+        rp.location();
+    }
+}
+
+//an abstract method cannot be final other method can be final
+//an abstract method cannot be private other method can be final
+
+
+-----------------------------------------------------------------------------------------------------------------------
+public abstract class MyPlan {
+    final void garden(){
+        System.out.println("garden");
+    }
+    void sp(){
+        System.out.println("swim");
+    }
+    void rooms(){
+        System.out.println("3bhk");
+    }
+
+   private abstract void location();  //error
+//    abstract void location();
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+public abstract class MyPlan {
+    final void garden(){
+        System.out.println("garden");
+    }
+    void sp(){
+        System.out.println("swim");
+    }
+    void rooms(){
+        System.out.println("3bhk");
+    }
+
+   final abstract void location();
+//    abstract void location();
+}
+-----------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------
+public abstract class Animal {
+    //common behaviour
+    void eat(){
+        System.out.println("animal is eating");
+    }
+    //behaviour will differ for all the animal we create
+    abstract  void sound();
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+public class Tiger extends Animal{
+    @Override
+    void sound() {
+        System.out.println("Tiger roars");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+public class Cat extends Animal{
+    @Override
+    void sound(){
+        System.out.println("cat meows");
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+public class AnimalService {
+    public static void main(String[] args) {
+        Tiger tiger = new Tiger();
+        tiger.eat();
+        tiger.sound();
+
+        Cat cat = new Cat();
+        cat.eat();
+        cat.sound();
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------
+//DMD
+public class AnimalService {
+    public static void main(String[] args) {
+
+        Animal animal  = new Tiger();  //DMD
+        Animal animal1 = new Cat();
+//object of the child animal  = new Tiger();
+        //refering with the parent instance  Animal
+
+
+        System.out.println(animal instanceof Tiger);
+
+        animal.eat();
+        animal.sound();
+
+        animal1.eat();
+        animal1.sound();
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------
+
+public abstract class Animal {
+    //common behaviour
+    void eat(){
+        System.out.println("animal is eating");
+    }
+    //behaviour will differ for all the animal we create
+    abstract  void sound();
+
+    abstract void move();
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+public class Tiger extends Animal{
+    @Override
+    void sound() {
+        System.out.println("Tiger roars");
+    }
+    @Override
+    void move(){
+        System.out.println("Tiger runs fast in the jungle");
+    }
+
+    void hunt(){
+        System.out.println("Tiger is hunter");
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------
+public class Cat extends Animal{
+    @Override
+    void sound(){
+        System.out.println("cat meows");
+    }
+
+    @Override
+    void move(){
+        System.out.println("Cat runs silently in the jungle around");
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------
+public class Dog extends Animal{
+    @Override
+    void move(){
+        System.out.println("Dogs runs");
+    }
+    @Override
+    void sound(){
+        System.out.println("Dogs make sounds bark");
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------
+public class AnimalService {
+    public static void main(String[] args) {
+
+        Animal animal = new Tiger();
+//        Animal animal = new Cat();
+//        Animal animal = new Dog();
+
+        AnimalMover animalMover = new AnimalMover();
+        animalMover.moveAnimal(animal);
+
+
+//        animal.hunt()  // u can only call super type methods (parents methods)
+
+        Tiger t = new Tiger();
+        t.hunt();
+
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+public class AnimalMover {
+
+
+    void moveAnimal(Animal animal){
+
+        animal.move();
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
 
