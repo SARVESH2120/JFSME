@@ -1,0 +1,66 @@
+//interface is set of abstract method
+//interface methods don't have body
+//all interface methods are public and abstract by default
+//interfaces are set of rules
+
+
+public interface Flyer {
+    void fly();
+    
+}
+
+
+//we cannot make interface method as protected
+//A class is not a child of an interface
+//protected visible t child class and package member
+//purpose of interface non-related class share common behaviour
+
+
+
+
+//Abstract crates kind of relationship among the classes - two classes related to each other
+//interface doesn't create a kind of relationship among the classes like abstract creates parent child 
+//Non-related classes share the common behaviour implements the interface
+//Abstract class creates a tight coupling - Objects are coupled tightly here
+//In interface -- Objects are loose coupled
+// Coupling means combine the object - like BankAccount, SavingAccount , CurrentAccount
+//Laptop & Touchpad  -- Tightly coupled can't easily replaced
+//Laptop & Mouse  -- Loose coupled can easily replaced
+
+-------------------------------------------------------------------------------------------------------------
+public class Bird implements Flyer{
+    @Override
+    public void fly(){
+        System.out.println("Birds Fly");
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+public class Aircraft implements Flyer{
+    @Override
+    public void fly(){
+        System.out.println("Aircraft Flies");
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+public class Superman implements Flyer{
+    @Override
+    public void fly(){
+        System.out.println("Superman flies");
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------
