@@ -1,0 +1,65 @@
+public interface RemoteControll {
+    void turnOn();
+    void turnOff();
+
+}
+
+------------------------------------
+public class Tv implements RemoteControll{
+    @Override
+    public void turnOn(){
+        System.out.println("Tv Turn On");
+    };
+    public void turnOff(){
+        System.out.println("Tv turn off");
+    };
+}
+
+------------------------------------
+public class Ac implements RemoteControll{
+    @Override
+    public void turnOn(){
+        System.out.println("Ac Turn On");
+    };
+    public  void turnOff(){
+        System.out.println("AC Turn Of");
+    };
+}
+
+------------------------------------
+public class Fan implements RemoteControll{
+    @Override
+    public void turnOn(){
+        System.out.println("Fan Turn On");
+    };
+    public void turnOff(){
+        System.out.println("Fan Turn Off");
+    };
+}
+
+------------------------------------
+
+public class RemoteService {
+    public static void main(String[] args) {
+        RemoteControll device = new Tv();
+        device.turnOff();
+        device.turnOn();
+
+        device = new Fan();
+        device.turnOff();
+        device.turnOn();
+
+        device = new Ac();
+        device.turnOff();
+        device.turnOn();
+
+    }
+}
+
+------------------------------------
+
+
+
+
+
+
