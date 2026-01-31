@@ -14,6 +14,7 @@ public interface Flyer {
 //A class is not a child of an interface
 //protected visible t child class and package member
 //purpose of interface non-related class share common behaviour
+//classes belonging to the same package cann't use interface
 
 
 
@@ -74,8 +75,219 @@ public class FlyerService {
 
 -------------------------------------------------------------------------------------------------------------
 
+//why to create a interface and implements it if the calss only has to define it?
+
+public class Eagle {
+    public void fly(){
+        System.out.println("Eagle Flies");
+    }
+}
+
+
+
+
+-------------------------------------------------------------------------------------------------------------
+public class FlyerService {
+    public static void main(String[] args) {
+        Flyer flyer = new Bird();
+        flyer.fly();
+
+        Flyer flyer1 = new Aircraft();
+        flyer1.fly();
+
+        Flyer flyer2 = new Superman();
+        flyer2.fly();
+//        flyer2.saveslife();  //invalid
+
+
+        Eagle e = new Eagle();
+        e.fly();
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+
+
+
+public class Bird implements Flyer{
+    @Override
+    public void fly(){
+        System.out.println("Birds Fly");
+    }
+}
+
+
+//interface ensure if you mark  as a flyer it has to fly if we forget to add the fly method the it will not create.
+// eagle class can be created without a fly method as there is no such rule to create a class with fly method
+// errror creating bird class because bird implements flyer it has to define the fly method which is a rule.
+
+
+-------------------------------------------------------------------------------------------------------------
+
+public interface Interdemo {
+    public void demo();
+}
+-------------------------------------------------------------------------------------------------------------
+
+public class Bird implements Flyer , Interdemo{
+    @Override
+    public void fly(){
+        System.out.println("Birds Fly");
+    }
+
+    @Override
+    public void demo(){
+        System.out.println("Interdemo");
+    }
+
+    public void eats(){
+        System.out.println("Birde eats");
+    }
+
+}
+
+
+//interface ensure if you mark  as a flyer it has to fly if we forget to add the fly method the it will not create.
+// eagle class can be created without a fly method as there is no such rule to create a class with fly method
+
+
+
+-------------------------------------------------------------------------------------------------------------
+
+
+public class FlyerService {
+    public static void main(String[] args) {
+        Flyer flyer = new Bird();
+        flyer.fly();
+
+        Flyer flyer1 = new Aircraft();
+        flyer1.fly();
+
+        Flyer flyer2 = new Superman();
+        flyer2.fly();
+//        flyer2.saveslife();  //invalid
+
+
+        Eagle e = new Eagle();
+        e.fly();
+
+       Bird b = new Bird();
+        b.fly();
+        b.demo();
+        b.eats();
+    }
+}
+
+
+//A class can implements more than one interface
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------
+//class implements interface
+//class extends class
+//interface extends class ? not possible 
+// interface implements interface ? not possible
+//class can implemets more than one interface
+//interface and interface can be parent and child means interface can extends another interface
+
+
+-------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------
+
 -------------------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------------------
+
+INHERITANCE WITH INTERFACE
+
+
+
+//if you are implementing child interface u must override all the methods from child interface and parent interface since child inherits all the parent behaviour
+
+
+
+interface Flyerchild extends Flyer{
+    void childMethodFly();
+
+}
+
+
+interface demoInter{
+    void demo();
+}
+
+public class InterfaceTest implements Flyerchild {
+
+    public void childMethodFly(){}
+
+    public void fly(){}
+
+
+    public static void main(String[] args) {
+
+    }
+}
+
+
+-------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------
+NOT Understand Multile Inheritance
+-------------------------------------------------------------------------------------------------------------
+
+
+//if you are implementing child interface u must override all the methods from child interface and parent interface since child inherits all the parent behaviour
+
+// multiple inheritance is possible with interfaces meaning an interface can extend more than one interface
+
+interface Flyerchild extends Flyer{
+    void childMethodFly();
+
+}
+
+
+interface demoInter extends Flyer, Interdemo{
+//   demo(); from interDemo
+    // fly() ; from flyer
+
+    void somethingElse();
+
+}
+
+public class InterfaceTest implements demoInter {
+    
+    @Override
+    public void demo(){
+        
+    }
+    
+    @Override
+    public void somethingElse(){}
+
+    public void childMethodFly(){}
+
+    public void fly(){}
+
+
+    public static void main(String[] args) {
+
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------
+JAVA DOESN'T SUPPORT MULTIPLE INHERITANCE WITH CLASSES BUT JAVA SUPPORT MULTIPLE INTERFACES WITH INTERFACES
+-------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------
+
+
