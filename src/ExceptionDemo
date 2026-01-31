@@ -1,0 +1,227 @@
+//Abnormal condition occurs during the program execution which terminates the flow of the program
+//exception handling is all about protecting our program from being terminated
+//try catch finally throw throws
+
+
+public class ExceptionDemo {
+    public static void main(String[] args) {
+        System.out.println("Hello");
+        try{
+            System.out.println(10/0);
+        }catch (ArithmeticException e){
+            System.out.println("cannot divide a number by zero !! which school ");
+        }
+        System.out.println("hi");
+    }
+}
+
+
+
+///Checked & Unchecked exception
+
+// Object class is parent of all classes
+// Throwable is top most exception  -- two class derive -- Error  |  Exception
+
+//Checked exception 
+/**
+ * these r checked by the compiler 
+ * u must handle them - using try-catch or we can declare throws (meaning we are redirecting the exception to the caller)
+ * usually for recoverable situation (like file not found network issue )
+ * 
+ */
+
+
+
+//UnChecked exception 
+/**
+ * these r  not checked by the compiler 
+ * occurs due to code bug  -- programming mistake
+ * optional to handle
+ * 
+ *
+ */
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+MULTIPLE CATCH BLOCK
+
+public class ExceptionDemo {
+    public static void main(String[] args) {
+        System.out.println("Hello");
+        int [] x = {2,0};
+        try{
+            System.out.println(10/x[3]);
+        }catch (ArithmeticException e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Array prblm");
+            System.out.println(e.getMessage());
+        }catch (Exception e) {   // common catch block which handles all exception so it is used in last
+            throw new RuntimeException(e);
+        }
+        System.out.println("hi");
+    }
+}
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+Not move to second or thrid line
+
+public class ExceptionDemo {
+    public static void main(String[] args) {
+        System.out.println("line 1");
+        int [] x = {2,0};
+
+        try{
+            System.out.println(10/x[1]);
+
+            System.out.println(10/x[0]);
+
+            System.out.println("hello");
+
+        }catch (ArithmeticException e){
+            e.printStackTrace();
+        }catch (ArrayIndexOutOfBoundsException e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+}
+
+
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+public class ExceptionDemo {
+    public static void main(String[] args) {
+        System.out.println("line 1");
+        int [] x = {2,0};
+
+        try{
+            try {
+//                System.out.println(10/x[1])
+                 System.out.println(10/x[0]);;
+            }catch (ArithmeticException e){
+                System.out.println("nested " + e + " " + e.getMessage());
+            }
+
+            System.out.println(10/x[0]);
+
+            System.out.println("hello");
+
+        }catch (ArithmeticException e){
+            System.out.println("outer " + e + " " + e.getMessage());
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("outer " + e + " " + e.getMessage());
+        }
+
+        System.out.println("line 3");
+
+
+
+    }
+}
+
+
+
+-----------------------------------------------------
+//finally gets executed irrespective of try or catch -- used to release the resources
+
+public class ExceptionDemo {
+    public static void main(String[] args) {
+        System.out.println("line 1");
+
+
+        try{
+            System.out.println(10/0);
+        }catch (Exception e){
+            System.out.println("exception caught " + e + " " + e.getMessage());
+        }finally {
+            System.out.println("finally block");
+            //close the db connection 
+        }
+
+
+        //below finally block everything gets executed
+        System.out.println("line 3");
+
+
+
+    }
+}
+
+
+
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+
+
+
+-----------------------------------------------------
+
+public class ExceptionDemo {
+
+    static int myfunction(){
+
+        try{
+            System.out.println(10/0);
+            return 0;
+        }catch (Exception e){
+            System.out.println("exception caught " + e + " " + e.getMessage());
+            return -1 ;
+        }finally {
+            System.out.println("finally block");
+            //close the db connection
+        }
+
+//        System.out.println("HI");  // unreachable because of return
+    }
+
+
+
+    public static void main(String[] args) {
+        System.out.println("line 1");
+        myfunction();
+        System.out.println("line 3");
+
+
+
+    }
+}
+
+
+
+
+
+
+-----------------------------------------------------
+
+
+
+
+-----------------------------------------------------
+
+
+
+
+-----------------------------------------------------
+
+
