@@ -1,0 +1,75 @@
+public class MyDocument extends Document implements AllowPrinting{
+    String myData(){
+        return "this is my printable data" ;
+    }
+}
+
+--------------------------------------------------------------------
+
+public class MyPrinter {
+    void printDocument(Document doc){
+
+        if(doc instanceof AllowPrinting){
+            System.out.println(doc.myData());
+        }else{
+            System.out.println("thi doc can't be printed");
+        }
+    }
+}
+
+
+--------------------------------------------------------------------
+
+public interface AllowPrinting {
+
+}
+
+
+//it is a marker interface
+
+
+--------------------------------------------------------------------
+
+public class PrinterService {
+    public static void main(String[] args) {
+        Document doc1 = new MyDocument();
+        MyPrinter printer = new MyPrinter();
+        printer.printDocument(doc1);
+
+
+         Document doc2 = new MyDoc2();
+//        MyPrinter printer = new MyPrinter();
+        printer.printDocument(doc2);
+
+    }
+}
+
+
+---------------------------------------------------------------
+public class MyDoc2 extends Document {
+
+
+        String myData(){
+            return "this is my data cannot be printed" ;
+        }
+
+
+
+}
+
+
+
+
+--------------------------------------------------------------------
+public abstract  class Document  {
+
+    abstract String myData();
+
+}
+
+
+
+--------------------------------------------------------------------
+
+
+
