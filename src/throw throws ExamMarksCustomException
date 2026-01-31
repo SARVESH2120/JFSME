@@ -1,0 +1,103 @@
+import java.io.FileNotFoundException;
+//throws keyword is used to raise an exception
+
+public class ExceptionDemo {
+    public static void main(String[] args) {
+        System.out.println("line1");    
+//        throw new FileNotFoundException();
+        try{
+            throw new ArithmeticException();
+        }catch (Exception e){}
+        System.out.println("line 3");
+    }
+}
+
+
+--------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------
+CUSTOM EXCEPTION -- CHECKED EXCEPTION 
+--------------------------------------------------------------------
+public class InvalidMarksException extends Exception {
+    public InvalidMarksException(String message){
+        super(message);
+    }
+
+}
+--------------------------------------------------------------------
+public class Exam {
+    void marksEntry(int marks) throws InvalidMarksException{
+        if(marks > 100 || marks < 0){
+            throw new InvalidMarksException("Invalid marks enter pls check");
+        }else
+            System.out.println("You have scored " + marks + " marks");
+    }
+}
+--------------------------------------------------------------------
+
+public class ExceptionDemo {
+    public static void main(String[] args) {
+        Exam exam  = new Exam();
+        try{
+            exam.marksEntry(12);
+        }catch (InvalidMarksException e){
+//            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+RUNTIME EXCEPTION UNCHECKED EXCEPTION
+--------------------------------------------------------------------
+public class InvalidMarksException extends RuntimeException {
+
+    public InvalidMarksException(String message){
+        super(message);
+    }
+
+}
+
+--------------------------------------------------------------------
+public class Exam {
+    void marksEntry(int marks) throws InvalidMarksException{
+        if(marks > 100 || marks < 0){
+            throw new InvalidMarksException("Invalid marks enter pls check");
+
+        }else
+            System.out.println("You have scored " + marks + " marks");
+    }
+}
+
+
+//throw keyword is used to raise the exception
+//throws keyword is used to redirects the exception to the caller
+--------------------------------------------------------------------
+
+public class ExceptionDemo {
+    public static void main(String[] args) {
+        Exam exam  = new Exam();
+        exam.marksEntry(12);
+        System.out.println("line 3");
+
+
+
+    }
+}
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
