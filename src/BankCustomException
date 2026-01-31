@@ -1,0 +1,49 @@
+public class InsufficientFundsException extends RuntimeException{
+    public InsufficientFundsException(String message){
+        super(message);
+    }
+
+}
+
+
+--------------------------------------------------------------------
+public class MyBankAccount {
+    private String accountNumber;
+    private int balance;
+
+    public MyBankAccount(String accountNumber, int balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    public void withdraw(int amount) throws InsufficientFundsException {
+        if (amount > balance)
+            throw new InsufficientFundsException("Not enough balance");
+        else
+            System.out.println("u draw rs " + amount + "ur current blc is " + balance);
+
+    }
+
+    public void deposit(int amount){
+        balance += amount;
+        System.out.println("u deposit rs " + amount + "ur current blc is " + balance);
+    }
+
+}
+
+--------------------------------------------------------------------
+
+public class MyBankingService {
+    public static void main(String[] args) {
+        MyBankAccount account = new MyBankAccount("icici1234" , 5000);
+        try{
+            account.withdraw(3000);
+        }catch (InsufficientFundsException e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println("thanku visit again");
+    }
+}
+
+
+--------------------------------------------------------------------
