@@ -1,0 +1,134 @@
+  public class CollectionDemo {
+
+    public static void main(String[] args) {
+        Object [] myArray = new Object[10];
+        myArray[0]  =  new String("hello");
+        myArray[1] = 10;
+        myArray[2] = 10.5f ;
+        for(Object o : myArray){
+            System.out.println(o);
+        }
+    }
+
+}
+//Object Array hetrogenous types of data looks like hetrogeneous type of collection but it is homogeneous
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+PLAYERS ARRAY
+--------------------------------------------------------------------------------------------------------------------------------------------------
+public class Player {
+    private String name;
+    private int jerseyNo ;
+    private String role ;
+
+    public Player(){
+
+    }
+
+    public Player(String name, int jerseyNo, String role) {
+        this.name = name;
+        this.jerseyNo = jerseyNo;
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", jerseyNo=" + jerseyNo +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getJerseyNo() {
+        return jerseyNo;
+    }
+
+    public void setJerseyNo(int jerseyNo) {
+        this.jerseyNo = jerseyNo;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+public class CollectionDemo {
+
+
+    static void getDetails(Player[] players){
+        for(Player player : players){
+            System.out.println(player);
+        }
+
+    }
+
+    static void printPlayerNames(Player[] players){
+        for(Player player : players){
+            System.out.println(player.getName().toUpperCase());
+        }
+    }
+
+
+
+    public static void main(String[] args) {
+
+        Player[] players = new Player[5];
+
+        Player p1 = new Player("Virat", 18 , "batsman");
+        Player p2 = new Player("rohit" , 45 , "batsman");
+        Player p3 = new Player("kl Rahul" , 45 , "wk batsman");
+        Player p4 = new Player("bumrah" , 4 , "bowler");
+        Player p5 = new Player("Siraj" , 41 , "bowler");
+
+
+
+        players[0] = p1;
+        players[1] = p2;
+        players[2] = p3;
+        players[3] = p4;
+        players[4] = p5;
+
+      getDetails(players);
+      printPlayerNames(players);
+
+    }
+
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------
