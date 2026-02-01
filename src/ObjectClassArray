@@ -123,11 +123,118 @@ public class CollectionDemo {
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
-
+Array OF Player Extended
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
+public class CollectionDemo {
+
+
+    static void getDetails(Player[] players){
+        for(Player player : players){
+            System.out.println(player);
+        }
+
+    }
+
+    static void printPlayerNames(Player[] players){
+        for(Player player : players){
+            System.out.println(player.getName().toUpperCase());
+        }
+    }
+
+    static  Player[] findPlayerByRole(String role , Player[] players){
+        Player[] foundPlayers = new Player[players.length];
+        int i = 0 ;
+        for(Player player : players){
+
+            if(player.getRole().equalsIgnoreCase(role) || player.getRole().contains(role)){
+                foundPlayers[i] = player;
+                i++;
+            }
+        }
+        return foundPlayers;
+    }
+
+
+
+    public static void main(String[] args) {
+
+        Player[] players = new Player[5];
+
+        Player p1 = new Player("Virat", 18 , "batsman");
+        Player p2 = new Player("rohit" , 45 , "batsman");
+        Player p3 = new Player("kl Rahul" , 45 , "wk batsman");
+        Player p4 = new Player("bumrah" , 4 , "bowler");
+        Player p5 = new Player("Siraj" , 41 , "bowler");
+
+
+
+        players[0] = p1;
+        players[1] = p2;
+        players[2] = p3;
+        players[3] = p4;
+        players[4] = p5;
+
+      getDetails(players);
+      printPlayerNames(players);
+
+        System.out.println("----------------");
+
+        getDetails(findPlayerByRole("batsman" , players));
+
+    }
+
+}
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
+public class Player {
+    private String name;
+    private int jerseyNo ;
+    private String role ;
+
+    public Player(){
+
+    }
+
+    public Player(String name, int jerseyNo, String role) {
+        this.name = name;
+        this.jerseyNo = jerseyNo;
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", jerseyNo=" + jerseyNo +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getJerseyNo() {
+        return jerseyNo;
+    }
+
+    public void setJerseyNo(int jerseyNo) {
+        this.jerseyNo = jerseyNo;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+}
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
