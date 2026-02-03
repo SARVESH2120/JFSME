@@ -198,14 +198,142 @@ public class CollectionDemo {
 
 -----------------------------------------------------
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Vector;
+
+public class CollectionDemo {
+
+    public static void main(String[] args) {
+
+        ArrayList<Integer> rollno = new ArrayList<>();
+        int x = 10;
+        rollno.add(x);
+        rollno.add(45);
+        rollno.add(12);
+        rollno.add(2, 2000);
+        rollno.add(55);
+
+        Iterator<Integer> itr =  rollno.iterator();
+
+        System.out.println(rollno);
+
+        while(itr.hasNext()){
+
+            int next  = itr.next();
+            System.out.println(next);
+            if(next == 45){
+                itr.remove(); //45 is removed from collection 
+                
+            }
+
+
+
+        }
+
+        System.out.println(rollno);
+
+
+
+
+    }
+}
+
+
+//iterator[editable] vs enumeration[read only] vs enhanced for loop
 
 -----------------------------------------------------
 
 
 -----------------------------------------------------
 
+Collection SORTED
+-----------------------------------------------------
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Vector;
+
+public class CollectionDemo {
+
+    public static void main(String[] args) {
+
+        ArrayList<Integer> rollno = new ArrayList<>();
+        int x = 10;
+        rollno.add(x);
+        rollno.add(45);
+        rollno.add(12);
+        rollno.add(2, 2000);
+        rollno.add(55);
+
+
+        System.out.println(rollno); //ordered but not sorted
+
+        Collections.sort(rollno);
+        System.out.println(rollno);
+        System.out.println("desc sort");
+        Collections.sort(rollno , Collections.reverseOrder());
+        System.out.println(rollno);
+
+
+
+
+    }
+}
+
+//Collection - Interface vs Collections -Class
+//A comparator is a interface in java that gives a logic for sorting
 
 -----------------------------------------------------
 
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Vector;
+
+public class CollectionDemo {
+
+    public static void main(String[] args) {
+
+        ArrayList<String> names = new ArrayList<String>();
+        int x = 10;
+        names.add("amit");
+        names.add("ankit");
+        names.add("saurabh");
+        names.add(1, "sarvesh");
+        names.add("vishal");
+
+
+        System.out.println(names); //ordered but not sorted
+
+        Collections.sort(names);
+        System.out.println(names);
+        System.out.println("desc sort");
+        Collections.sort(names , Collections.reverseOrder());
+        System.out.println(names);
+
+
+
+
+    }
+}
+
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+
+-----------------------------------------------------
 
 
