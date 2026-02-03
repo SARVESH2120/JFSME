@@ -1,0 +1,106 @@
+//set -> unordered ,unique
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+public class CollectionDemo {
+
+    public static void main(String[] args) {
+
+        Set<Integer> mySet = new HashSet<>();
+        mySet.add(45);
+        mySet.add(43);
+        mySet.add(41);
+        mySet.add(43);
+        mySet.add(44);
+        mySet.add(46);
+        mySet.add(49);
+
+        System.out.println(mySet);
+        
+
+    }
+}
+
+--------------------------------------------------------------------
+
+
+TREE SET 
+--------------------------------------------------------------------
+
+
+//set -> unordered
+//treeset -> sorted set
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class CollectionDemo {
+
+    public static void main(String[] args) {
+
+        Set<Integer> mySet = new TreeSet<>();
+        mySet.add(45);
+        mySet.add(43);
+        mySet.add(41);
+        mySet.add(43);
+        mySet.add(44);
+        mySet.add(46);
+        mySet.add(49);
+
+        System.out.println(mySet);
+
+    }
+}
+
+
+--------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------
+
+
+//set -> unordered
+//treeset -> sorted set
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class CollectionDemo {
+
+    public static void main(String[] args) {
+
+        Set<Integer> mySet = new TreeSet<>(Collections.reverseOrder());
+        mySet.add(45);
+        mySet.add(43);
+        mySet.add(41);
+        mySet.add(43);
+        mySet.add(44);
+        mySet.add(46);
+        mySet.add(49);
+
+        System.out.println(mySet);
+    }
+}
+
+
+--------------------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------------
