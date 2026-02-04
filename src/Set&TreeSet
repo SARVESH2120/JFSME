@@ -100,7 +100,138 @@ public class CollectionDemo {
 
 --------------------------------------------------------------------
 
+import java.util.HashSet;
+import java.util.Set;
+
+public class CollectionDemo {
+    
+    static Set<Integer> getElements(){
+        Set<Integer> mySet = new HashSet<Integer>();
+        mySet.add(45);
+        mySet.add(43);
+        mySet.add(41);
+        mySet.add(43);
+        mySet.add(44);
+        mySet.add(46);
+        mySet.add(49);
+
+     return mySet;
+    }
+
+
+    public static void main(String[] args) {
+        Set<Integer> elements = getElements();
+        System.out.println(elements);
+        
+    }
+}
+
 
 
 
 --------------------------------------------------------------------
+
+
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class CollectionDemo {
+
+    static Set<Integer> getElements(){
+        Set<Integer> mySet = new HashSet<Integer>();
+        mySet.add(45);
+        mySet.add(43);
+        mySet.add(41);
+        mySet.add(43);
+        mySet.add(44);
+        mySet.add(46);
+        mySet.add(49);
+
+     return mySet;
+    }
+
+
+    public static void main(String[] args) {
+        Set<Integer> elements = getElements();
+        System.out.println(elements);
+
+
+        System.out.println("Elemets after sorted");
+        Set<Integer> sortedElements = new TreeSet<>(elements);
+        System.out.println(sortedElements);
+
+    }
+}
+
+
+
+---------------------------------------------------------------------
+
+
+---------------------------------------------------------------------
+
+USER DEFINED SET
+---------------------------------------------------------------------
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class CollectionDemo {
+
+    static Set<Player> getPlayers(){
+        Set<Player> players = new HashSet<Player>();
+
+        Player p1 = new Player("Virat" , 18 , "batsman");
+        Player p2 = new Player("abs" , 18 , "batsman");
+        Player p3 = new Player("fs" , 18 , "wk batsman");
+        Player p4 = new Player("gd" , 18 , "Bowler");
+        Player p5 = new Player("dg" , 18 , "Bowler");
+
+        players.add(p1);
+        players.add(p2);
+        players.add(p3);
+        players.add(p4);
+        players.add(p5);
+
+
+     return players;
+    }
+
+
+    public static void main(String[] args) {
+        Set<Player> elements = getPlayers();
+//        System.out.println(elements);
+for(Player p : elements){
+    System.out.println(p);
+}
+
+//        System.out.println("Elemets after sorted");
+//        Set<Player> sortedElements = new TreeSet<>(getPlayers()); //Class Cast Exception
+//        System.out.println(sortedElements);
+
+    }
+}
+
+//one left treeset.....
+
+---------------------------------------------------------------------
+
+
+---------------------------------------------------------------------
+
+
+---------------------------------------------------------------------
+
+
+---------------------------------------------------------------------
+
+
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+
+
+---------------------------------------------------------------------
+
