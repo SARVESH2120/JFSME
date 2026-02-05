@@ -1,0 +1,322 @@
+import java.util.*;
+
+public class CollectionDemo {
+
+
+
+    public static void main(String[] args) {
+
+
+        Player p1 = new Player("Virat" , 18 , "batsman");
+        Player p2 = new Player("abs" , 18 , "batsman");
+        Player p3 = new Player("fs" , 18 , "wk batsman");
+        Player p4 = new Player("gd" , 18 , "Bowler");
+        Player p5 = new Player("dg" , 18 , "Bowler");
+
+        List<Player> players = new ArrayList<>();
+
+        players.add(p1);
+        players.add(p2);
+        players.add(p3);
+        players.add(p4);
+        players.add(p5);
+
+        for(Player player : players){
+            System.out.println(player);
+        }
+
+    }
+}
+
+
+------------------------------------
+public class Player {
+    private String name;
+    private int jerseyNo ;
+    private String role ;
+
+    public Player(){
+
+    }
+
+    public Player(String name, int jerseyNo, String role) {
+        this.name = name;
+        this.jerseyNo = jerseyNo;
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", jerseyNo=" + jerseyNo +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getJerseyNo() {
+        return jerseyNo;
+    }
+
+    public void setJerseyNo(int jerseyNo) {
+        this.jerseyNo = jerseyNo;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+}
+
+------------------------------------
+
+------------------------------------
+
+
+------------------------------------
+
+--------------------------------------------------------------------
+------------------------------------
+--------------------------------------------------------------------
+
+public class Player implements Comparable <Player>{
+    private String name;
+    private int jerseyNo ;
+    private String role ;
+
+    public Player(){
+
+    }
+
+    public Player(String name, int jerseyNo, String role) {
+        this.name = name;
+        this.jerseyNo = jerseyNo;
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", jerseyNo=" + jerseyNo +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getJerseyNo() {
+        return jerseyNo;
+    }
+
+    public void setJerseyNo(int jerseyNo) {
+        this.jerseyNo = jerseyNo;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+
+    //this - o -->  asec
+    //o - this --> desc
+
+    @Override
+    public int compareTo(Player o) {
+//        return this.jerseyNo - o.jerseyNo;
+        return o.jerseyNo - this.jerseyNo;
+    }
+
+}
+
+
+
+--import java.util.*;
+
+public class CollectionDemo {
+
+
+
+    public static void main(String[] args) {
+
+
+        Player p1 = new Player("Virat" , 18 , "batsman");
+        Player p2 = new Player("abs" , 17 , "batsman");
+        Player p3 = new Player("fs" , 16, "wk batsman");
+        Player p4 = new Player("gd" , 15 , "Bowler");
+        Player p5 = new Player("dg" , 14 , "Bowler");
+
+        List<Player> players = new ArrayList<>();
+
+        players.add(p1);
+        players.add(p2);
+        players.add(p3);
+        players.add(p4);
+        players.add(p5);
+
+        for(Player player : players){
+            System.out.println(player);
+        }
+
+        System.out.println("after sort");
+
+        Collections.sort(players);
+
+        for(Player player : players){
+            System.out.println(player);
+        }
+
+    }
+}
+
+----------------------------------
+
+------------------------------------
+------------------------------------
+
+------------------------------------
+------------------------------------
+
+------------------------------------
+------------------------------------
+
+------------------------------------
+------------------------------------
+
+------------------------------------
+------------------------------------
+public class Player implements Comparable <Player>{
+    private String name;
+    private int jerseyNo ;
+    private String role ;
+
+    public Player(){
+
+    }
+
+    public Player(String name, int jerseyNo, String role) {
+        this.name = name;
+        this.jerseyNo = jerseyNo;
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", jerseyNo=" + jerseyNo +
+                ", role='" + role + '\'' +
+                '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getJerseyNo() {
+        return jerseyNo;
+    }
+
+    public void setJerseyNo(int jerseyNo) {
+        this.jerseyNo = jerseyNo;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+
+    //this - o -->  asec
+    //o - this --> desc
+
+    @Override
+    public int compareTo(Player o) {
+//        return this.jerseyNo - o.jerseyNo;
+//        return o.jerseyNo - this.jerseyNo;
+//        return this.name.compareTo(o.name);  //asec sort
+        return o.name.compareTo(this.name);  //desc sort
+
+    }
+
+}
+
+------------------------------------
+------------------------------------
+import java.util.*;
+
+public class CollectionDemo {
+
+
+
+    public static void main(String[] args) {
+
+
+        Player p1 = new Player("Virat" , 18 , "batsman");
+        Player p2 = new Player("abs" , 17 , "batsman");
+        Player p3 = new Player("fs" , 16, "wk batsman");
+        Player p4 = new Player("gd" , 15 , "Bowler");
+        Player p5 = new Player("dg" , 14 , "Bowler");
+
+        List<Player> players = new ArrayList<>();
+
+        players.add(p1);
+        players.add(p2);
+        players.add(p3);
+        players.add(p4);
+        players.add(p5);
+
+        for(Player player : players){
+            System.out.println(player);
+        }
+
+        System.out.println("after sort");
+
+        Collections.sort(players);
+
+        for(Player player : players){
+            System.out.println(player);
+        }
+
+    }
+}
+
+
+------------------------------------
+------------------------------------
+
+------------------------------------
+
+
+
+
+
+
