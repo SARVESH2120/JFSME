@@ -1,0 +1,73 @@
+import java.util.Comparator;
+
+public class PlayerNameSort implements Comparator<Player> {
+
+    @Override
+    public int compare(Player o1 , Player o2){
+        return o1.getName().compareTo(o2.getName());
+    }
+
+}
+
+
+---------------------------------
+
+import java.util.Comparator;
+
+public class PlayerJerseyNoSort implements Comparator<Player> {
+    @Override
+    public int compare(Player o1 , Player o2){
+        return o1.getJerseyNo() - o2.getJerseyNo();
+    }
+}
+
+
+------------------------------------------
+
+
+import java.util.*;
+
+public class CollectionDemo {
+
+
+
+    public static void main(String[] args) {
+
+
+        Player p1 = new Player("Virat" , 18 , "batsman");
+        Player p2 = new Player("abs" , 17 , "batsman");
+        Player p3 = new Player("fs" , 16, "wk batsman");
+        Player p4 = new Player("gd" , 15 , "Bowler");
+        Player p5 = new Player("dg" , 14 , "Bowler");
+
+        List<Player> players = new ArrayList<>();
+
+        players.add(p1);
+        players.add(p2);
+        players.add(p3);
+        players.add(p4);
+        players.add(p5);
+
+        for(Player player : players){
+            System.out.println(player);
+        }
+
+        System.out.println("after sort");
+
+        Collections.sort(players, new PlayerNameSort());
+
+        for(Player player : players){
+            System.out.println(player);
+        }
+
+
+        System.out.println("jersey no sort");
+        Collections.sort(players, new PlayerJerseyNoSort());
+
+        for(Player player : players){
+            System.out.println(player);
+        }
+
+    }
+}
+
